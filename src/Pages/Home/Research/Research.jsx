@@ -10,7 +10,6 @@ const Research = () => {
       return data;
     },
   });
-  console.log(researches);
 
   return (
     <div>
