@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const CollegeCard = ({ college }) => {
-  console.log(college);
   const {
     _id,
     college_name,
