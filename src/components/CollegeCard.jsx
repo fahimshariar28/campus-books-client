@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const CollegeCard = ({ college }) => {
+  console.log(college);
   const {
     _id,
     college_name,
@@ -8,6 +9,8 @@ const CollegeCard = ({ college }) => {
     averageRating,
     admission_date,
     research_count,
+    events,
+    sports,
   } = college;
 
   return (
@@ -27,8 +30,30 @@ const CollegeCard = ({ college }) => {
             <p className="text-lg">Research Published: {research_count}</p>
             <p className="text-lg">Rating: {averageRating}</p>
           </div>
-          <div className="card-actions justify-end">
-            <Link to={`/classes/${_id}`}>
+          <div className="flex justify-between">
+            <div>
+              <p className="text-lg text-primary">Events</p>
+              <ul className="list-disc">
+                {events.map((event, index) => (
+                  <li key={index} className="text-lg">
+                    {event}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-lg text-primary">Sports</p>
+              <ul className="list-disc">
+                {sports.map((sport, index) => (
+                  <li key={index} className="text-lg">
+                    {sport}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="card-actions justify-center">
+            <Link to={`/college/${_id}`}>
               <button className="btn btn-primary">Details</button>
             </Link>
           </div>
