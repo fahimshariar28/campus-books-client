@@ -10,7 +10,6 @@ const Reviews = () => {
       return response.json();
     },
   });
-  console.log(reviews);
 
   return (
     <div>
