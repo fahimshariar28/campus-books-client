@@ -38,14 +38,9 @@ const AuthProvider = ({ children }) => {
   //     phoneNumber: number,
   //   });
   // };
-  const updateUserName = (name) => {
+  const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
-    });
-  };
-
-  const updateUserPhoto = (photo) => {
-    return updateProfile(auth.currentUser, {
       photoURL: photo,
     });
   };
@@ -98,8 +93,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
-    updateUserName,
-    updateUserPhoto,
+    updateUserProfile,
     loginUser,
     googleSignIn,
     facebookSignIn,

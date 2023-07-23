@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin";
 
 const Register = () => {
-  const { createUser, updateUserName } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
@@ -22,14 +22,15 @@ const Register = () => {
     reset();
     const name = data.name;
     const email = data.email;
+    const photo = data.photo;
     const password = data.password;
     const confirmPassword = data.confirmPassword;
     if (password === confirmPassword) {
       createUser(email, password)
         .then((result) => {
           console.log(result);
-          updateUserName(name).then(() => {
-            const savedUser = { name, email };
+          updateUserProfile(name, photo).then(() => {
+            const savedUser = { name, email, photo };
             fetch("http://localhost:5000/adduser", {
               method: "POST",
               headers: { "content-type": "application/json" },
@@ -78,6 +79,17 @@ const Register = () => {
             {...register("email", { required: true })}
             type="email"
             placeholder="Your email"
+            className="input input-bordered"
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Image URL</span>
+          </label>
+          <input
+            {...register("photo", { required: true })}
+            type="text"
+            placeholder="Your Image URL"
             className="input input-bordered"
           />
         </div>
