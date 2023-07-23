@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useAuth();
+  const { createUser, updateUserName } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 
@@ -28,7 +28,7 @@ const Register = () => {
       createUser(email, password)
         .then((result) => {
           console.log(result);
-          updateUserProfile(name).then(() => {
+          updateUserName(name).then(() => {
             const savedUser = { name, email };
             fetch("http://localhost:5000/adduser", {
               method: "POST",

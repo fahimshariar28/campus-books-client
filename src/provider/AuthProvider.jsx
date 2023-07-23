@@ -31,9 +31,21 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const updateUserProfile = (name, photo) => {
+  // const updateUserProfile = (name, photo, number) => {
+  //   return updateProfile(auth.currentUser, {
+  //     displayName: name,
+  //     photoURL: photo,
+  //     phoneNumber: number,
+  //   });
+  // };
+  const updateUserName = (name) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
+    });
+  };
+
+  const updateUserPhoto = (photo) => {
+    return updateProfile(auth.currentUser, {
       photoURL: photo,
     });
   };
@@ -86,7 +98,8 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
-    updateUserProfile,
+    updateUserName,
+    updateUserPhoto,
     loginUser,
     googleSignIn,
     facebookSignIn,
