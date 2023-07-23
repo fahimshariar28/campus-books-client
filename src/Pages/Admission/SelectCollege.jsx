@@ -70,6 +70,7 @@ const SelectCollege = () => {
               className="w-1/2 h-12 input input-bordered border-primary"
               {...register("subject")}
               placeholder="Subject"
+              required
             />
           </div>
           <div className="flex flex-col md:flex-row mt-5 gap-5">
@@ -98,12 +99,14 @@ const SelectCollege = () => {
               {...register("studentPhone")}
               placeholder="Phone Number"
               pattern="[0-9]+"
+              required
             />
             <input
               className="w-1/2 h-12 input input-bordered border-primary"
               type="text"
               {...register("studentAddress")}
               placeholder="Address"
+              required
             />
           </div>
           <div className="flex flex-col md:flex-row mt-5 gap-5">
@@ -112,6 +115,7 @@ const SelectCollege = () => {
               type="date"
               {...register("studentDOB")}
               placeholder="Date of Birth"
+              required
             />
             <input
               className="w-1/2 h-12 input input-bordered border-primary"
@@ -119,6 +123,7 @@ const SelectCollege = () => {
               {...register("studentImage")}
               defaultValue={user?.photoURL}
               placeholder="Image URL"
+              required
             />
           </div>
           <div className="flex justify-center">
