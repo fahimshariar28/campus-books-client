@@ -14,6 +14,8 @@ const SelectCollege = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     data.studentPhone = parseInt(data.studentPhone);
+    data.appliedDate = new Date().toLocaleDateString();
+    data.studentDOB = new Date(data.studentDOB).toLocaleDateString();
     try {
       await axiosSecure.post("/admission", data);
       Swal.fire({

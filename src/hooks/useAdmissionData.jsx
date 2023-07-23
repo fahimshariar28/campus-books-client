@@ -5,14 +5,18 @@ import useAxiosSecure from "./useAxiosSecure";
 const useAdmissionData = () => {
   const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth();
-  const { data: admissionData, isLoading: admissionDataLoading } = useQuery({
+  const {
+    data: admissionData,
+    isLoading: admissionDataLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["admissionData"],
     queryFn: async () => {
       const response = await axiosSecure.get(`/admission/${user.email}`);
       return response.data;
     },
   });
-  return { admissionData, admissionDataLoading };
+  return { admissionData, admissionDataLoading, refetch };
 };
 
 export default useAdmissionData;
