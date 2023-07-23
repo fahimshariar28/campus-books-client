@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useDbUser from "../../hooks/useDbUser";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
+  const { dbUser } = useDbUser();
 
   const handleLogout = () => {
     logOut();
@@ -86,7 +88,7 @@ const NavBar = () => {
         {user ? (
           <>
             <Link to="/profile" className="text-xl text-primary">
-              {user.displayName || "Profile"}
+              {dbUser.name || "Profile"}
             </Link>
             <button className="btn btn-error ms-3" onClick={handleLogout}>
               Logout
