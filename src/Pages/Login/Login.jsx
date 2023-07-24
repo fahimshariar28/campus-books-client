@@ -9,7 +9,7 @@ import Lottie from "lottie-react";
 import login from "../../assets/login.json";
 
 const Login = () => {
-  const { loginUser } = useAuth();
+  const { loginUser, resetPassword } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,6 +47,38 @@ const Login = () => {
       .catch((error) => {
         console.log(error.message);
       });
+  };
+
+  const handleForgetPassword = () => {
+    Swal.fire({
+      title: "Enter your email address",
+      input: "email",
+      inputPlaceholder: "Enter your email address",
+      showCancelButton: true,
+      confirmButtonText: "Send",
+      showLoaderOnConfirm: true,
+      preConfirm: (email) => {
+        return resetPassword(email)
+          .then((result) => {
+            console.log(result);
+            Swal.fire({
+              icon: "success",
+              title: "Password reset email sent",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((error) => {
+            console.log(error.message);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: error.message,
+            });
+          });
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+    });
   };
 
   return (
@@ -103,6 +135,12 @@ const Login = () => {
                 />
               </div>
             </form>
+            <button
+              onClick={() => handleForgetPassword()}
+              className="link link-hover text-center text-primary"
+            >
+              Forget Password?
+            </button>
             <p className="p-5 text-center">
               New Here?{" "}
               <span className="text-primary">

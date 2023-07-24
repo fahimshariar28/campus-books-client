@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -31,13 +32,6 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // const updateUserProfile = (name, photo, number) => {
-  //   return updateProfile(auth.currentUser, {
-  //     displayName: name,
-  //     photoURL: photo,
-  //     phoneNumber: number,
-  //   });
-  // };
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -58,6 +52,11 @@ const AuthProvider = ({ children }) => {
   const facebookSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, facebookProvider);
+  };
+
+  const resetPassword = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
   };
 
   const logOut = () => {
@@ -97,6 +96,7 @@ const AuthProvider = ({ children }) => {
     loginUser,
     googleSignIn,
     facebookSignIn,
+    resetPassword,
     logOut,
   };
   return (
