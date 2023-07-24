@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const UpdateProfile = () => {
   const [isEditMode, setIsEditMode] = useState(false);
 
-  const { user, updateUserName } = useAuth();
+  const { user, updateUserProfile } = useAuth();
   const { dbUser, dbUserRefetch } = useDbUser();
   //   console.log(dbUser);
   //   console.log(user);
@@ -22,7 +22,7 @@ const UpdateProfile = () => {
       const email = data.email;
       const phone = data.phone;
       const address = data.address;
-      updateUserName(name).then(() => {
+      updateUserProfile(name).then(() => {
         //   Profile name update
       });
       axiosSecure.patch(`/user/${user.email}`, {
@@ -43,6 +43,7 @@ const UpdateProfile = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       {!isEditMode ? (
