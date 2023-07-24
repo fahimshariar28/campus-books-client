@@ -1,11 +1,15 @@
 import { Link, useRouteError } from "react-router-dom";
 import Lottie from "lottie-react";
 import reader from "../../assets/render.json";
+import { Helmet } from "react-helmet-async";
 
 const ErrorPage = () => {
   const { error } = useRouteError();
   return (
     <>
+      <Helmet>
+        <title>Error | Campus Books</title>
+      </Helmet>
       <section className="flex">
         <div className="container flex flex-col items-center justify-center">
           {/* Lottie Animation */}

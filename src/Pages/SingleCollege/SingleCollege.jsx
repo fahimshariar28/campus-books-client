@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-import SectionTitle from "../../components/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const SingleCollege = () => {
   const college = useLoaderData();
@@ -18,7 +18,9 @@ const SingleCollege = () => {
 
   return (
     <div>
-      <SectionTitle title="Single College" />
+      <Helmet>
+        <title>{college_name} | Campus Books</title>
+      </Helmet>
       <div>
         <div className="mockup-window border bg-base-300">
           <div className="flex flex-col justify-center px-4 py-16 bg-base-200">

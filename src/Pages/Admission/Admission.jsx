@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../components/SectionTitle";
 import { Link } from "react-router-dom";
 import useAdmissionData from "../../hooks/useAdmissionData";
+import { Helmet } from "react-helmet-async";
 
 const Admission = () => {
   const { data: colleges, isLoading } = useQuery({
@@ -23,6 +24,9 @@ const Admission = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Admission | Campus Books</title>
+      </Helmet>
       <SectionTitle title="Admission" />
       <div className="overflow-x-auto">
         <table className="table">

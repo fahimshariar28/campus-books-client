@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAdmissionData from "../../hooks/useAdmissionData";
+import { Helmet } from "react-helmet-async";
 
 const SelectCollege = () => {
   const { user } = useAuth();
@@ -45,6 +46,10 @@ const SelectCollege = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Select College | Campus Books</title>
+      </Helmet>
+
       <SectionTitle title="Select College" />
       {admissionDataLoading ? (
         <div className="flex justify-center items-center">

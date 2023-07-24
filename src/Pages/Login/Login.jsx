@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../Shared/SocialLogin";
 import Lottie from "lottie-react";
 import login from "../../assets/login.json";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, resetPassword } = useAuth();
@@ -83,6 +84,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Login | Campus Books</title>
+      </Helmet>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col-reverse lg:flex-row-reverse justify-evenly">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

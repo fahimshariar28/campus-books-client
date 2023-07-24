@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin";
 import registration from "../../assets/registration.json";
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
@@ -61,6 +62,9 @@ const Register = () => {
 
   return (
     <div className="hero">
+      <Helmet>
+        <title>Register | Campus Books</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">

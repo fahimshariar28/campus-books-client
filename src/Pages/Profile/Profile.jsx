@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../components/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 import useDbUser from "../../hooks/useDbUser";
@@ -9,6 +10,9 @@ const Profile = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Profile | Campus Books</title>
+      </Helmet>
       <SectionTitle title="Profile" />
       {dbUserLoading ? (
         <div className="flex justify-center items-center">

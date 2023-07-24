@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import SectionTitle from "../../components/SectionTitle";
 import useAdmissionData from "../../hooks/useAdmissionData";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const MyCollege = () => {
   const { admissionData, admissionDataLoading, refetch } = useAdmissionData();
@@ -62,6 +63,9 @@ const MyCollege = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My College | Campus Books</title>
+      </Helmet>
       <SectionTitle title="My College" />
       <div className="overflow-x-auto">
         <table className="table">

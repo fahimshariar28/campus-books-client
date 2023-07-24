@@ -3,6 +3,7 @@ import SectionTitle from "../../components/SectionTitle";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import CollegeCard from "../../components/CollegeCard";
+import { Helmet } from "react-helmet-async";
 
 const Colleges = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,6 +24,9 @@ const Colleges = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Colleges | Campus Books</title>
+      </Helmet>
       <SectionTitle title="Colleges" />
       {isLoading ? (
         <div className="flex justify-center items-center">
