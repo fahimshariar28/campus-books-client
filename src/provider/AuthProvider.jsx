@@ -10,7 +10,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateEmail,
   updateProfile,
 } from "firebase/auth";
 import { useEffect } from "react";
@@ -55,10 +54,6 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, facebookProvider);
   };
 
-  const updateUserEmail = (email) => {
-    return updateEmail(auth.currentUser, email);
-  };
-
   const resetPassword = (email) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
@@ -101,7 +96,6 @@ const AuthProvider = ({ children }) => {
     loginUser,
     googleSignIn,
     facebookSignIn,
-    updateUserEmail,
     resetPassword,
     logOut,
   };
