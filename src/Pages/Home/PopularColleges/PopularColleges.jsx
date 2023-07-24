@@ -6,7 +6,9 @@ const PopularColleges = () => {
   const { data: colleges, isLoading } = useQuery({
     queryKey: ["popularColleges"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:5000/popularcolleges");
+      const response = await fetch(
+        "https://campus-books-server.vercel.app/popularcolleges"
+      );
       return response.json();
     },
   });

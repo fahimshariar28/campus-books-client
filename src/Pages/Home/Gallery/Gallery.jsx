@@ -5,7 +5,9 @@ const Gallery = () => {
   const { data: graduates, isLoading } = useQuery({
     queryKey: ["graduates"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:5000/graduates");
+      const response = await fetch(
+        "https://campus-books-server.vercel.app/graduates"
+      );
       return response.json();
     },
   });

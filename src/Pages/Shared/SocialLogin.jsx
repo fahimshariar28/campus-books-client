@@ -19,7 +19,7 @@ const SocialLogin = () => {
           name: user.displayName,
           email: user.email,
         };
-        fetch("http://localhost:5000/adduser", {
+        fetch("https://campus-books-server.vercel.app/adduser", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(savedUser),
@@ -52,7 +52,7 @@ const SocialLogin = () => {
           name: user.displayName,
           email: user.email,
         };
-        fetch("http://localhost:5000/adduser", {
+        fetch("https://campus-books-server.vercel.app/adduser", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(savedUser),

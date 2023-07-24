@@ -15,7 +15,7 @@ const Colleges = () => {
     queryKey: ["colleges", currentPage],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:5000/colleges?page=${currentPage}&limit=${collegesPerPage}`
+        `https://campus-books-server.vercel.app/colleges?page=${currentPage}&limit=${collegesPerPage}`
       );
       return response.json();
     },

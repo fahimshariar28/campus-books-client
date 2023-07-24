@@ -11,7 +11,7 @@ const Search = () => {
   const onSubmit = (data) => {
     const search = data.search;
     setIsLoading(true); // Set loading to true when data fetching starts
-    fetch(`http://localhost:5000/colleges/search/${search}`)
+    fetch(`https://campus-books-server.vercel.app/colleges/search/${search}`)
       .then((res) => res.json())
       .then((data) => {
         setColleges(data);
