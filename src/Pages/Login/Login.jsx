@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../Shared/SocialLogin";
+import Lottie from "lottie-react";
+import login from "../../assets/login.json";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -50,7 +52,7 @@ const Login = () => {
   return (
     <div>
       <div className="hero min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">
+        <div className="hero-content flex-col-reverse lg:flex-row-reverse justify-evenly">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
@@ -105,6 +107,9 @@ const Login = () => {
               New Here? <Link to="/register">Create an account</Link>{" "}
             </p>
             <SocialLogin></SocialLogin>
+          </div>
+          <div>
+            <Lottie animationData={login} loop={true}></Lottie>
           </div>
         </div>
       </div>
