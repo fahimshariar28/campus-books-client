@@ -75,12 +75,12 @@ const AuthProvider = ({ children }) => {
             email: currentUser.email,
           })
           .then((data) => {
-            localStorage.setItem("access-token", data.data.token);
+            localStorage.setItem("e-book-access-token", data.data.token);
             setLoading(false);
           });
       } else {
         setLoading(false);
-        localStorage.removeItem("access-token");
+        localStorage.removeItem("e-book-access-token");
       }
     });
     return () => {
